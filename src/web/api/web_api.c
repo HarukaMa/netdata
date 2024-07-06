@@ -16,11 +16,9 @@ int web_client_api_request_vX(RRDHOST *host, struct web_client *w, char *url_pat
         w->access = (netdata_is_protected_by_bearer) ? HTTP_ACCESS_NONE : HTTP_ACCESS_ANONYMOUS_DATA;
     }
 
-#ifdef NETDATA_GOD_MODE
     web_client_flag_set(w, WEB_CLIENT_FLAG_AUTH_GOD);
     w->user_role = HTTP_USER_ROLE_ADMIN;
     w->access = HTTP_ACCESS_ALL;
-#endif
 
     if(unlikely(!url_path_endpoint || !*url_path_endpoint)) {
         buffer_flush(w->response.data);
