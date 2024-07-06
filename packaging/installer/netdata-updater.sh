@@ -32,10 +32,10 @@
 
 set -e
 
-PACKAGES_SCRIPT="https://raw.githubusercontent.com/netdata/netdata/master/packaging/installer/install-required-packages.sh"
+PACKAGES_SCRIPT="https://raw.githubusercontent.com/HarukaMa/netdata/master/packaging/installer/install-required-packages.sh"
 
-NETDATA_STABLE_BASE_URL="${NETDATA_BASE_URL:-https://github.com/netdata/netdata/releases}"
-NETDATA_NIGHTLY_BASE_URL="${NETDATA_BASE_URL:-https://github.com/netdata/netdata-nightlies/releases}"
+NETDATA_STABLE_BASE_URL="${NETDATA_BASE_URL:-https://github.com/HarukaMa/netdata/releases}"
+NETDATA_NIGHTLY_BASE_URL="${NETDATA_BASE_URL:-https://github.com/HarukaMa/netdata/releases}"
 NETDATA_DEFAULT_ACCEPT_MAJOR_VERSIONS="1 2"
 
 # Following variables are intended to be overridden by the updater config file.
@@ -532,7 +532,7 @@ get_netdata_latest_tag() {
 newer_commit_date() {
   info "Checking if a newer version of the updater script is available."
 
-  commit_check_url="https://api.github.com/repos/netdata/netdata/commits?path=packaging%2Finstaller%2Fnetdata-updater.sh&page=1&per_page=1"
+  commit_check_url="https://api.github.com/repos/HarukaMa/netdata/commits?path=packaging%2Finstaller%2Fnetdata-updater.sh&page=1&per_page=1"
   python_version_check="
 from __future__ import print_function
 import sys, json
@@ -581,7 +581,7 @@ self_update() {
     ndtmpdir=$(create_tmp_directory)
     cd "$ndtmpdir" || exit 1
 
-    if _safe_download "https://raw.githubusercontent.com/netdata/netdata/master/packaging/installer/netdata-updater.sh" ./netdata-updater.sh; then
+    if _safe_download "https://raw.githubusercontent.com/HarukaMa/netdata/master/packaging/installer/netdata-updater.sh" ./netdata-updater.sh; then
       chmod +x ./netdata-updater.sh || exit 1
       export ENVIRONMENT_FILE="${ENVIRONMENT_FILE}"
       force_update=""
