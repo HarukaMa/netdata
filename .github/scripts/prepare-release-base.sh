@@ -92,10 +92,10 @@ check_newer_patch_version() {
 ##############################################################
 # Core logic
 
-git config user.name "netdatabot"
-git config user.email "bot@netdata.cloud"
+git config user.name "Haruka"
+git config user.email "mrx@hcc.im"
 
-if [ "${REPO}" != "netdata/netdata" ] && [ -z "${RELEASE_TEST}" ]; then
+if [ "${REPO}" != "HarukaMa/netdata" ] && [ -z "${RELEASE_TEST}" ]; then
     echo "::notice::Not running in the netdata/netdata repository, not queueing a release build."
     echo "run=false" >> "${GITHUB_OUTPUT}"
 elif [ "${EVENT_NAME}" = 'schedule' ] || [ "${EVENT_TYPE}" = 'nightly' ]; then
