@@ -420,24 +420,6 @@ jobs:
           makeLatest: true
           tag: ${{ steps.version.outputs.version }}
           token: ${{ secrets.NETDATABOT_GITHUB_TOKEN }}
-      - name: Checkout netdata main Repo # Checkout back to netdata/netdata repo to the update latest packaged versions
-        id: checkout-netdata
-        uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.NETDATABOT_GITHUB_TOKEN }}
-      - name: Init python environment for publish release metadata
-        uses: actions/setup-python@v5
-        id: init-python
-        with:
-          python-version: "3.12"
-      - name: Setup python environment
-        id: setup-python
-        run: |
-          pip install -r .github/scripts/modules/requirements.txt
-      - name: Check if the version is latest and published
-        id: check-latest-version
-        run: |
-          python .github/scripts/check_latest_versions.py  ${{ steps.version.outputs.version }}
 
   normalize-tag: # Fix the release tag if needed
     name: Normalize Release Tag
