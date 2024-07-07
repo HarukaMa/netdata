@@ -413,8 +413,8 @@ jobs:
           allowUpdates: false
           artifactErrorsFailBuild: true
           artifacts: 'final-artifacts/sha256sums.txt,final-artifacts/netdata-*.tar.gz,final-artifacts/netdata-*.gz.run,final-artifacts/integrations.js'
-          owner: netdata
-          repo: netdata-nightlies
+          owner: HarukaMa
+          repo: netdata
           body: Netdata nightly build for ${{ steps.version.outputs.date }}.
           commit: ${{ steps.version.outputs.commit }}
           makeLatest: true
